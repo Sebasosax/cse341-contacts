@@ -8,6 +8,8 @@ app.use(express.json());
 
 const { connectToDb } = require('./db/connect');
 
+app.use('/contacts', require('./routes/contacts'));
+
 app.get('/', (req, res) => {
   res.send('Hello World');
 });
