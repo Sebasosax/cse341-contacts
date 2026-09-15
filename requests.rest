@@ -1,0 +1,5 @@
+GET https://cse341-contacts-oqlh.onrender.com/contacts
+
+###
+
+GET https://cse341-contacts-oqlh.onrender.com/contacts/6aa5e3ac8c195ef563067c2f
