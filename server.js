@@ -7,11 +7,14 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 
 const { connectToDb } = require('./db/connect');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger-output.json');
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/contacts', require('./routes/contacts'));
 
 app.get('/', (req, res) => {
-  res.send('Hello World');
+  res.send('Contacts API is running. See /api-docs for documentation.');
 });
 
 connectToDb((err) => {

@@ -1,5 +1,47 @@
-GET https://cse341-contacts-oqlh.onrender.com/contacts
+@baseUrl = http://localhost:3000
 
-###
+### Get all contacts
+GET {{baseUrl}}/contacts
 
-GET https://cse341-contacts-oqlh.onrender.com/contacts/6aa5e3ac8c195ef563067c2f
+### Get a contact by id
+GET {{baseUrl}}/contacts/6aac956f59d90ed9528c6bbe
+
+### Create a new contact
+POST {{baseUrl}}/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Sebastian",
+  "lastName": "Sosa",
+  "email": "sebas.test@example.com",
+  "favoriteColor": "Blue",
+  "birthday": "1995-05-20"
+}
+
+### Update a contact
+PUT {{baseUrl}}/contacts/6aac956f59d90ed9528c6bbe
+Content-Type: application/json
+
+{
+  "firstName": "Sebastian",
+  "lastName": "Sosa",
+  "email": "sebas.updated@example.com",
+  "favoriteColor": "Green",
+  "birthday": "1995-05-20"
+}
+
+### Delete a contact
+DELETE {{baseUrl}}/contacts/6aac956f59d90ed9528c6bbe
+
+### Error: invalid id format
+GET {{baseUrl}}/contacts/12345
+
+### Error: missing required fields on create
+POST {{baseUrl}}/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Incomplete"
+}
+### Delete accidental duplicate
+DELETE {{baseUrl}}/contacts/6aac963359d90ed9528c6bbf
